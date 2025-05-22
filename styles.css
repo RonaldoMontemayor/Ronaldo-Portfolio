@@ -17,14 +17,9 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 0;
-}
-
-header img {
-  height: 5rem;
-  margin-left: -6rem;
 }
 
 nav {
@@ -96,9 +91,25 @@ h2 {
   color: #03045E;
 }
 
-.skills img, .projects img, .contact img {
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  text-align: center;
+}
+
+.skills img {
   width: 100px;
-  margin-right: 1rem;
+  height: auto;
+  margin-bottom: 0.5rem;
 }
 
 .projects {
@@ -117,16 +128,16 @@ h2 {
   height: 20rem;
 }
 
-.contact img {
-  width: 23rem;
-  height: 30rem;
-  border-radius: 5%;
-}
-
 .contact {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.contact img {
+  width: 23rem;
+  height: 30rem;
+  border-radius: 5%;
 }
 
 .contact-info {
@@ -138,7 +149,8 @@ h2 {
   margin-top: 6rem;
 }
 
-.contact-info p, .contact-info a {
+.contact-info p,
+.contact-info a {
   margin: 0.2rem 0;
   color: #03045E;
   text-decoration: none;
@@ -152,36 +164,26 @@ footer {
   color: #03045E;
 }
 
-.anime {
-  position: relative;
+.collab-text {
   font-size: 3rem;
-  color: #252839;
-  -webkit-text-stroke: 0.3vw #383d52;
-  text-transform: uppercase;
-}
-
-.anime::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
+  font-weight: 900;
   color: #01fe87;
-  -webkit-text-stroke: 0vw #383d52;
-  border-right: 2px solid #01fe87;
-  overflow: hidden;
-  animation: animate 6s linear infinite;
+  text-align: center;
+  animation: pulse 3s ease-in-out infinite;
+  letter-spacing: 0.1em;
 }
 
-@keyframes animate {
-  5%, 25%, 50%, 100% {
-    width: 0;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
   }
-  70%, 100% {
-    width: 100%;
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
   }
 }
+
 
 .back-to-top {
   position: fixed;
@@ -207,16 +209,10 @@ footer {
   background-color: #F5EE84;
 }
 
-/* Responsive Styling */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     align-items: center;
-  }
-
-  header img {
-    margin-left: 0;
-    height: 4rem;
   }
 
   nav {
@@ -295,6 +291,12 @@ footer {
   }
 
   .anime {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .collab-text {
     font-size: 2rem;
   }
 }
